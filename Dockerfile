@@ -17,6 +17,7 @@ RUN apt-get -y update && \
       apt-get update && \
       apt-get install yarn && \
       apt-get clean && \
+      apt-get install -y netcat && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*c 
 
 RUN mkdir /app
