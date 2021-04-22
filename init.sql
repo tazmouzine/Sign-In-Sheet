@@ -1,0 +1,2 @@
+CREATE USER solides;
+ALTER USER solides WITH SUPERUSER;

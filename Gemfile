@@ -26,6 +26,9 @@ gem 'cancancan'
 gem 'devise'
 gem 'devise-async'
 gem 'devise-bootstrapped'
+
+gem 'draper' #Decorator
+
 gem 'toastr-rails'
 gem 'twitter-bootstrap-rails'
 
