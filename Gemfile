@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -27,7 +29,7 @@ gem 'devise'
 gem 'devise-async'
 gem 'devise-bootstrapped'
 
-gem 'draper' #Decorator
+gem 'draper' # Decorator
 
 gem 'toastr-rails'
 gem 'twitter-bootstrap-rails'
@@ -40,7 +42,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
   end
@@ -56,11 +58,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman'
   gem 'guard', require: false
   gem 'guard-rails_best_practices', require: false
   gem 'guard-rspec', require: false
   gem 'rails_best_practices'
-  gem 'brakeman'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rails_real_favicon'
@@ -68,7 +70,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen', '~> 2.0.0'  
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
@@ -76,11 +78,11 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-  gem 'shoulda-matchers', '~> 4.0'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 4.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
