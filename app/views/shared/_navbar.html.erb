@@ -1,0 +1,36 @@
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <ul class='nav navbar-nav'>
+        <% if user_signed_in? %>
+          <li class='nav-item'><%= link_to 'Log out', destroy_user_session_path, method: 'delete', class: 'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'Sign-in sheet', destroy_user_session_path, method: 'delete', class: 'nav-link' %></li>
+        <% else %>
+          <li class='nav-item'><%= link_to 'Login', new_user_session_path, class: 'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %></li>
+        <% end %>        
+      </ul>
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="<%= root_path %>">
+      <%= image_tag "sign-in.png", size: "30x30", class: "d-inline-block align-top", alt: 'Sign-in sheet' %>    
+      Sign-in sheet
+    </a>
+    <button class="navbar-toggler my-2 my-lg-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+  </nav>
+</div>
+<!-- 
+  %a.navbar-brand(href=root_path) App
+  .navbar-collapse.collapse.navbar-responsive-collapse
+    %ul.nav.navbar-nav
+      - if user_signed_in?
+        %li.nav-item= link_to 'Log out', destroy_user_session_path, method: 'delete', class: 'nav-link'
+        %li.nav-item= link_to 'Stores', stores_path, class: 'nav-link'
+        %li.nav-item= link_to 'Import entries', import_financial_entries_path, class: 'nav-link'
+      - else
+        %li.nav-item= link_to 'Login', new_user_session_path, class: 'nav-link'
+        %li.nav-item= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
+ -->
