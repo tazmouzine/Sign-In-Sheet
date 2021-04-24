@@ -1,12 +1,12 @@
 <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
   <div class="jumbotron jumbotron-fluid bg-transparent">
     <div class="container">
-      <h1>Welcome to Solides Sign-in sheet!</h1>
-      <% if user_signed_in? %>
+      <h1>Welcome to Sign-in sheet!</h1>      
       <p>A way to quickly set up sign-in entries.
-        <b>Please login or sign up to continue</b>
+      <% if user_signed_in? %>
+      <%= link_to 'Sign-in sheet', book_entries_path, class: 'btn btn-primary' %>  
       <% else %>
-      
+      <b>Please login or sign up to continue</b>
       <% end %>
       </p>
     </div>
