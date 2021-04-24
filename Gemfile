@@ -47,6 +47,12 @@ group :development, :test do
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
   end
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'simplecov', require: false
+  gem 'database_cleaner'
+  gem 'rspec-collection_matchers'
 end
 
 group :development do
@@ -75,11 +81,8 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'factory_bot_rails'
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-  gem 'selenium-webdriver'
-  gem 'shoulda-matchers', '~> 4.0'
+  gem 'capybara', '>= 3.26'  
+  gem 'selenium-webdriver'  
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
