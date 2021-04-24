@@ -4,7 +4,7 @@ module Command
       attr_accessor :user
       attr_accessor :kind
 
-      def initialize(user:, kind:)
+      def initialize(user:, kind:)        
         @user = user
         @kind = kind
       end

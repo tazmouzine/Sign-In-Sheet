@@ -6,7 +6,7 @@ RSpec.describe Service::BookEntry::Destroy do
       create(:book_entry)
     end
 
-    it 'destroys a store' do
+    it 'destroys a book_entry' do
       expect{ described_class.execute(id: book_entry.id) }
         .to change{ ::BookEntry.count }.by(-1)
     end

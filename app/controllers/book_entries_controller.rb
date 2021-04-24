@@ -21,11 +21,9 @@ class BookEntriesController < ApplicationController
   end
 
   # POST /book_entries or /book_entries.json
-  def create
-    puts params.to_yaml
-    @book_entry = Command::BookEntry::Create.new(user: current_user, kind: book_entry_params).execute
+  def create   
     respond_to do |format|
-      if @book_entry.save
+      if @book_entry = Command::BookEntry::Create.new(user: current_user, kind: params[:book_entry][:kind]).execute
         format.html { redirect_to @book_entry, notice: "Book entry was successfully created." }
         format.json { render :show, status: :created, location: @book_entry }
       else

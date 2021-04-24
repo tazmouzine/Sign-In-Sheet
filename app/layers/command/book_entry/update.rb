@@ -2,7 +2,7 @@ module Command
   module BookEntry
     class Update
       attr_accessor :user
-      attr_accessor :kind
+      attr_accessor :changes
 
       def initialize(id:, changes:)
         @id = id
