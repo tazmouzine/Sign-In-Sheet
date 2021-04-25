@@ -9,7 +9,7 @@ services:
    ports:
       - "3307:3306"
    volumes:
-      - $HOME/Desktop/MySQL-Snippets/solides.sql:/solides.sql
+      - $HOME/Desktop/MySQL-Snippets/backup.sql:/docs/backup.sql
  
  website:
    depends_on:
