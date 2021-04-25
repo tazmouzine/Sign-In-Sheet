@@ -39,7 +39,7 @@ class BookEntriesController < ApplicationController
   end
 
   def destroy
-    @deleted_book = Command::BookEntry::Destroy.new(id: params[:id]).execute
+    @deleted_book = Command::BookEntry::Destroy.new(id: params[:id], user: current_user.id).execute
     respond_to do |format|
       format.html { redirect_to book_entries_url, notice: 'Book entry was successfully destroyed.' }
     end
@@ -48,7 +48,7 @@ class BookEntriesController < ApplicationController
   private
 
   def set_book_entry
-    @book_entry = Command::BookEntry::Show.new(id: params[:id]).execute
+    @book_entry = Command::BookEntry::Show.new(id: params[:id], user: current_user.id).execute
   end
 
   def book_entry_params

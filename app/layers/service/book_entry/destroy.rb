@@ -3,9 +3,9 @@
 module Service
   module BookEntry
     class Destroy
-      def self.execute(id:)
+      def self.execute(id:, user:)
         ActiveRecord::Base.transaction do
-          record = ::BookEntry.find(id)
+          record = ::BookEntry.find_by(id: id, user: user)
           record.destroy!
 
           record

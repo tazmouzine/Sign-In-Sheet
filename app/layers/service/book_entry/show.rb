@@ -3,8 +3,8 @@
 module Service
   module BookEntry
     class Show
-      def self.execute(id:, **_config)
-        ::BookEntry.find_by!(id: id).decorate
+      def self.execute(id:, user:)
+        ::BookEntry.find_by!(id: id, user_id: user).decorate
       end
     end
   end
