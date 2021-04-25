@@ -81,7 +81,6 @@ yarn-debug.log*
 /test/tmp/
 /test
 /test/version_tmp/
-/tmp/
 
 # Used by dotenv library to load environment variables.
 # .env

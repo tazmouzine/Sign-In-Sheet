@@ -21,6 +21,7 @@ RUN apt-get -y update && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*c 
 
 RUN mkdir /app
+RUN mkdir /tmp/pids
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
