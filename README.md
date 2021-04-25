@@ -1,24 +1,36 @@
-# README
+# Sign in sheet on Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Hot to run on Linux
 
-Things you may want to cover:
+Tales Mousine (@tales-dias-mousine) - (https://www.linkedin.com/in/tales-mousine/)
 
-* Ruby version
+### Requirements
 
-* System dependencies
+- docker-compose version 1.22
+- internet connection to download containers
 
-* Configuration
+### How to run
 
-* Database creation
+```
+-- Clone this path
 
-* Database initialization
+Execute the commands
 
-* How to run the test suite
+-- docker-compose build
+-- docker-compose up -d
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+It will build the docker containers and start the application. This could take a while :-)
+(depends on )
 
-* Deployment instructions
+After that, you can see Rails top page on http://localhost:3000/.
 
-* ...
+### How to test
+
+```
+-- docker-compose exec web bundle exec rspec
+```
+
+### MySQL DUMP File
+
+1. The documentation file can be founded on Docs path. 

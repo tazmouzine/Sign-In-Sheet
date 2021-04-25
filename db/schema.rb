@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20_210_422_192_321) do
     t.index ['user_id'], name: 'index_book_entries_on_user_id'
   end
 
-  create_table 'books', charset: 'utf8mb4', force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.integer 'kind'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_books_on_user_id'
-  end
-
   create_table 'users', charset: 'utf8mb4', force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
@@ -42,5 +34,4 @@ ActiveRecord::Schema.define(version: 20_210_422_192_321) do
   end
 
   add_foreign_key 'book_entries', 'users'
-  add_foreign_key 'books', 'users'
 end

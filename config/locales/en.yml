@@ -30,4 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      book_entry:
+        one: Book Entry
+        other: Book Entries
+    attributes:
+      book_entry:
+        kind: Kind
+        created_at: Created at
+  book_entry:
+    kind:
+      arrive: Arrive
+      lunch_in: Lunch In
+      lunch_out: Lunch Out
+      leave: Leave
