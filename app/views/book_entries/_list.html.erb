@@ -1,6 +1,6 @@
-<tr>  
-  <td><%= book_entry.kind %></td>
-  <td><%=l book_entry.created_at %></td>
+<tr>
+  <td><%= t("book_entry.kind.#{book_entry.kind}") %></td>
+  <td><%= book_entry.created_at %></td>
   <td>
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_book_entry_path(book_entry), :class => 'btn btn-default btn-xs' %>

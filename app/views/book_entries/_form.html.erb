@@ -12,41 +12,49 @@
         </ul>
       </div>
     </div>
-  <% end %> 
-  <div class="form-group col-12">    
-    <%=f.error_span(:kind) %>
-    <div class="col-sm-12 col-lg-6">
-      <label class="radio-button col-md-2" value='arrive'>Arrive
-        <%= f.radio_button :kind, :arrive %>
-        <span class="checkmark"></span>
-      </label>
+  <% end %>
+  <div class="col-sm">
+    <div class="form-group row">
+      <%=f.error_span(:kind) %>
+      <div class="col-xl-6">
+        <label class="radio-button col-xl-12" value='arrive'>Arrive
+          <%= f.radio_button :kind, :arrive %>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="col-xl-6">
+        <label class="radio-button col-xl-12" value='lunch_out'>Lunch Out
+          <%= f.radio_button :kind, :lunch_out %>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="col-xl-6">
+        <label class="radio-button col-xl-12" value='lunch_in'>Lunch In
+          <%= f.radio_button :kind, :lunch_in %>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="col-xl-6">
+        <label class="radio-button col-xl-12" value='leave'>Leave
+          <%= f.radio_button :kind, :leave %>
+          <span class="checkmark"></span>
+        </label>
+      </div>
     </div>
-    <div class="col-sm-12 col-lg-6">
-      <label class="radio-button col-md-2" value='lunch_out'>Lunch Out
-        <%= f.radio_button :kind, :lunch_out %>
-        <span class="checkmark"></span>
-      </label>
-    </div>
-    <div class="col-sm-12 col-lg-6">
-      <label class="radio-button col-md-2" value='lunch_in'>Lunch In
-        <%= f.radio_button :kind, :lunch_in %>
-        <span class="checkmark"></span>
-      </label>
-    </div>
-    <div class="col-sm-12 col-lg-6">
-      <label class="radio-button col-md-2" value='leave'>Leave
-        <%= f.radio_button :kind, :leave %>
-        <span class="checkmark"></span>
-      </label>
-    </div>    
   </div>
-
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      <%= f.submit 'Check in', class: 'btn btn-primary', disabled: true, id: 'submit_book_entry' %>
+      <%= link_to 'List entries',
                 book_entries_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
 <% end %>
+<script>
+  $(document).ready(function(){
+    $("input[name^='book_entry']").click(function() {
+      $("#submit_book_entry").attr('disabled', false);
+    });
+  });
+</script>

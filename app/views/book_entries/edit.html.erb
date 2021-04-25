@@ -1,5 +1,7 @@
 <%- model_class = BookEntry -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+<div class="col-md-12">
+  <div class="page-header">
+    <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  </div>
+  <%= render 'form' %>
 </div>
-<%= render :partial => 'form' %>
