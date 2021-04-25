@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Command::BookEntry::Destroy do
   describe '#execute' do
-    subject { described_class.new(id: book_entry.id) }
+    subject { described_class.new(id: book_entry.id, user: book_entry.user.id) }
     let!(:book_entry) do
       create(:book_entry)
     end

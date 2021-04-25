@@ -3,34 +3,34 @@
 require 'rails_helper'
 
 RSpec.describe BookEntriesController, type: :controller do
-  let(:valid_attributes) do
-    {
-      user: create(:user),
-      kind: :arrive
-    }
-  end
-
-  let(:invalid_attributes) do
-    {
-      user: create(:user),
-      kind: ''
-    }
-  end
   context 'Without a access' do
     describe 'GET index' do
       it 'redirect to sign in page' do
-        get :index
+        get :index, {}
         expect(response).to redirect_to('/users/sign_in')
       end
     end
   end
   context 'User logged' do
+    login_user
+    let(:valid_attributes) do
+      {
+        user: subject.current_user,
+        kind: :arrive
+      }
+    end
+
+    let(:invalid_attributes) do
+      {
+        user: subject.current_user,
+        kind: ''
+      }
+    end
     describe 'GET index' do
-      login_user
-      let!(:book_entries) { create_list(:book_entry, 2) }
+      let!(:book_entries) { create_list(:book_entry, 2, user: subject.current_user) }
 
       it 'renders saved book entries' do
-        get :index
+        get :index, {}
 
         expect(assigns[:book_entries]).to have(2).items
         expect(response).to render_template('index')
@@ -38,11 +38,10 @@ RSpec.describe BookEntriesController, type: :controller do
     end
 
     describe 'GET edit' do
-      login_user
-      let!(:book_entry) { create(:book_entry) }
+      let!(:book_entry) { create(:book_entry, user: subject.current_user) }
 
       it 'renders book_entry edit form' do
-        get :edit, params: { id: book_entry.id }
+        get :edit, params: { id: book_entry.id, user: subject.current_user.id }
 
         expect(assigns[:book_entry]).to eq(book_entry)
         expect(response).to render_template('edit')
@@ -50,7 +49,6 @@ RSpec.describe BookEntriesController, type: :controller do
     end
 
     describe 'POST /create' do
-      login_user
       context 'with valid parameters' do
         it 'creates a new BookEntry' do
           expect do
@@ -73,7 +71,6 @@ RSpec.describe BookEntriesController, type: :controller do
     end
 
     describe 'PATCH /update' do
-      login_user
       context 'with valid parameters' do
         let(:new_attributes) do
           attributes_for(:book_entry)
@@ -104,12 +101,9 @@ RSpec.describe BookEntriesController, type: :controller do
     end
 
     describe 'DELETE destroy' do
-      login_user
-      let!(:book_entry) { create(:book_entry) }
-      subject { delete :destroy, params: { id: book_entry.id } }
-
       it 'destroys a book_entry' do
-        expect { subject }.to change { BookEntry.count }.by(-1)
+        book_entry = BookEntry.create! valid_attributes
+        delete :destroy, params: { id: book_entry.id }
         expect(response).to redirect_to(book_entries_path)
       end
     end
