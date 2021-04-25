@@ -12,7 +12,7 @@ Tales Mousine (@tales-dias-mousine) - (https://www.linkedin.com/in/tales-mousine
 ### How to run
 
 ```
--- Clone this path
+-- Clone this repository
 
 Execute the commands
 
