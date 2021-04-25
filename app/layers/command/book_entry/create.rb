@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 module Command
   module BookEntry
     class Create
-      attr_accessor :user
-      attr_accessor :kind
+      attr_accessor :user, :kind
 
-      def initialize(user:, kind:)        
+      def initialize(user:, kind:)
         @user = user
         @kind = kind
       end

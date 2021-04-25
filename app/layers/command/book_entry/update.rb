@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 module Command
   module BookEntry
     class Update
-      attr_accessor :user
-      attr_accessor :changes
+      attr_accessor :user, :changes
 
       def initialize(id:, changes:)
         @id = id

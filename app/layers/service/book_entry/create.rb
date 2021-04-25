@@ -1,12 +1,10 @@
+# frozen_string_literal: true
+
 module Service
   module BookEntry
     class Create
       def self.execute(user:, kind:)
-        ActiveRecord::Base.transaction do          
-          ::BookEntry.create!(user: user, kind: kind)                  
-        rescue StandardError => e
-          raise "Save failed: #{e.message}"
-        end
+        ::BookEntry.create(user: user, kind: kind)
       end
     end
   end

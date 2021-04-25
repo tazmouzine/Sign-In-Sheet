@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Command::BookEntry::Destroy do
@@ -8,7 +10,7 @@ RSpec.describe Command::BookEntry::Destroy do
     end
 
     it 'destroys a book_entry' do
-      expect{ subject.execute }.to change{ BookEntry.count }.by(-1)
+      expect { subject.execute }.to change { BookEntry.count }.by(-1)
     end
   end
 end

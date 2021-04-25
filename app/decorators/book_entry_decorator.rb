@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class BookEntryDecorator < ApplicationDecorator
   delegate_all
 
-  def create_at
-    model.create_at.to_formatted_s(:long_ordinal)
+  def created_at
+    model.created_at.to_formatted_s(:short)
   end
 end

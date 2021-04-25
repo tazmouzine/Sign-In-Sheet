@@ -1,23 +1,25 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe BookEntry, type: :model do
-  subject {
+  subject do
     described_class.new(
       user: create(:user),
       kind: 1
     )
-  }
+  end
 
-  it "is valid with valid attributes" do
+  it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
 
-  it "is not valid without a user" do
+  it 'is not valid without a user' do
     subject.user = nil
     expect(subject).to_not be_valid
   end
 
-  it "is not valid without a kind" do
+  it 'is not valid without a kind' do
     subject.kind = nil
     expect(subject).to_not be_valid
   end
@@ -32,6 +34,6 @@ RSpec.describe BookEntry, type: :model do
     subject { described_class.new }
 
     it { is_expected.to validate_presence_of(:user) }
-    it { is_expected.to validate_presence_of(:kind) }    
+    it { is_expected.to validate_presence_of(:kind) }
   end
 end

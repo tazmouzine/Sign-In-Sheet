@@ -8,6 +8,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 user = User.create!(email: 'teste2@teste.com', password: 'teste123')
-BookEntry.create!(user: user, kind: 0);
+BookEntry.create!(user: user, kind: 0)
